@@ -25,7 +25,8 @@ const CATEGORIES = [
   { id: "ruby-core",     label: "Ruby言語機能・内部実装" },
   { id: "sessions-2026", label: "今年の発表者・セッション" },
   { id: "past-topics",   label: "過去RubyKaigiの重要トピック" },
-  { id: "ecosystem",     label: "Ruby周辺エコシステム" }
+  { id: "ecosystem",     label: "Ruby周辺エコシステム" },
+  { id: "vocab-en",      label: "RubyKaigi頻出英語" }
 ];
 
 const QUESTIONS = [
@@ -658,5 +659,460 @@ const QUESTIONS = [
     answer: 0,
     explanation: "<b>PicoRuby は mruby をベースに、マイコン上で実用的に動くよう軽量化された処理系</b>。Ruby コードを mruby バイトコードにコンパイルしてマイコンで実行する構成が一般的です。",
     reference: { label: "mruby", url: "https://mruby.org/" }
+  },
+
+  // ==================================================
+  // CATEGORY: RubyKaigi頻出英語（技術用語）
+  // ==================================================
+  {
+    id: "vocab-001",
+    category: "vocab-en",
+    q: "<b>AST</b>（Abstract Syntax Tree）が表すものは？",
+    options: [
+      "ソースコードを木構造で表現した中間表現",
+      "VM が実行するバイトコード列",
+      "トークン化した後の線形な単語列",
+      "コンパイラが生成するアセンブリの抽象化"
+    ],
+    answer: 0,
+    explanation: "<b>AST</b> はソースコードを構文の木構造として表した中間表現です。Ruby では <b>Prism</b> や <code>RubyVM::AbstractSyntaxTree</code> で取得できます。バイトコードや機械語よりも「構文に忠実」なのが特徴。",
+    reference: { label: "RubyVM::AbstractSyntaxTree", url: "https://docs.ruby-lang.org/en/master/RubyVM/AbstractSyntaxTree.html" }
+  },
+  {
+    id: "vocab-002",
+    category: "vocab-en",
+    q: "<b>Lexer</b>（tokenizer）が担うのはどの工程？",
+    options: [
+      "ソースコードの文字列をトークン列に分割する",
+      "トークン列から構文木を組み立てる",
+      "構文木を機械語に翻訳する",
+      "機械語を実行時に最適化する"
+    ],
+    answer: 0,
+    explanation: "<b>Lexer</b>（字句解析器 / tokenizer）は、文字列を意味のある最小単位（トークン）に切り出す工程を担います。木構造に組み立てるのは Parser の仕事。"
+  },
+  {
+    id: "vocab-003",
+    category: "vocab-en",
+    q: "Parser と Lexer（tokenizer）の関係として正しいのは？",
+    options: [
+      "Lexer がトークンを切り出し、Parser がそのトークン列を構文木に組み立てる",
+      "Parser がトークンを切り出し、Lexer が構文木を組み立てる",
+      "両者は同義で、呼び方の違いだけ",
+      "Parser はランタイムで動き、Lexer はコンパイル時のみ動く"
+    ],
+    answer: 0,
+    explanation: "一般的なパイプラインは <b>文字列 → (Lexer) → トークン列 → (Parser) → AST</b>。Ruby では Prism のようにパーサが lexer も内包する設計もあります。"
+  },
+  {
+    id: "vocab-004",
+    category: "vocab-en",
+    q: "<b>Bytecode</b>（バイトコード）とは？",
+    options: [
+      "仮想機械（VM）が解釈・実行することを前提にした、ソースより低水準の中間表現",
+      "CPU が直接実行できる機械語そのもの",
+      "ソースコードを gzip 圧縮したバイト列",
+      "文字コード UTF-8 のエイリアス"
+    ],
+    answer: 0,
+    explanation: "<b>Bytecode</b> は VM 実行を前提とする中間コード。Ruby では <b>YARV</b> が命令列（iseq）を実行します。機械語ではないため CPU は直接実行できません。",
+    reference: { label: "RubyVM::InstructionSequence", url: "https://docs.ruby-lang.org/en/master/RubyVM/InstructionSequence.html" }
+  },
+  {
+    id: "vocab-005",
+    category: "vocab-en",
+    q: "コンパイラ文脈での <b>IR</b>（Intermediate Representation）は何を指す？",
+    options: [
+      "最適化や変換を行いやすくするための、ソースと機械語の間の中間表現",
+      "例外処理で使う Internal Raise の略",
+      "Ruby 専用の命令スケジューラ",
+      "ガベージコレクタのリング構造"
+    ],
+    answer: 0,
+    explanation: "<b>IR</b> はコンパイラや JIT が扱いやすい形の中間表現の総称。AST もバイトコードも IR の一種で、Ruby の JIT（YJIT/ZJIT）も内部で独自の IR を使います。"
+  },
+  {
+    id: "vocab-006",
+    category: "vocab-en",
+    q: "<b>AOT</b> コンパイルと <b>JIT</b> コンパイルの違いとして正しいのは？",
+    options: [
+      "AOT は実行前にまとめてコンパイル、JIT は実行中に必要な部分を動的にコンパイルする",
+      "AOT は実行中のみ、JIT は実行前のみ動作する",
+      "AOT は動的言語専用、JIT は静的言語専用",
+      "両者は完全に同義で、言い方の違い"
+    ],
+    answer: 0,
+    explanation: "<b>AOT (Ahead-Of-Time)</b> は事前コンパイル、<b>JIT (Just-In-Time)</b> は実行時コンパイル。Ruby は MRI 実行 + JIT（YJIT/ZJIT）の組み合わせで動的に最適化します。"
+  },
+  {
+    id: "vocab-007",
+    category: "vocab-en",
+    q: "<b>JIT</b> の正式名称は？",
+    options: [
+      "Just-In-Time",
+      "Join-In-Thread",
+      "JavaScript Intermediate Transform",
+      "Jump If True"
+    ],
+    answer: 0,
+    explanation: "<b>JIT = Just-In-Time</b>。「必要になった瞬間にコンパイルする」という意味で、Ruby の YJIT / ZJIT / 旧 MJIT もこの方式です。"
+  },
+  {
+    id: "vocab-008",
+    category: "vocab-en",
+    q: "コンパイラ最適化の <b>inlining</b>（インライン化）の主な目的は？",
+    options: [
+      "関数呼び出しを展開して呼び出しコストを削減し、さらなる最適化の余地を作る",
+      "関数本体を暗号化してリバースエンジニアリングを防ぐ",
+      "関数を別スレッドに強制的に移す",
+      "関数の戻り値を必ず nil にする"
+    ],
+    answer: 0,
+    explanation: "<b>Inlining</b> は呼び出し先の本体を呼び出し元に埋め込み、プロローグ/エピローグの負担を消します。レジスタ割り付けや定数畳み込みなど後続最適化の起点にもなります。"
+  },
+  {
+    id: "vocab-009",
+    category: "vocab-en",
+    q: "<b>Constant folding</b>（定数畳み込み）とは？",
+    options: [
+      "コンパイル時に評価できる定数式を、計算済みの値に置き換える最適化",
+      "すべての定数を実行時に動的解決する機能",
+      "定数を暗号化して文字列として保持するテクニック",
+      "定数プールを GC 対象にする処理"
+    ],
+    answer: 0,
+    explanation: "<code>2 * 60 * 60</code> を <code>7200</code> に置き換えるような最適化。無駄な実行時計算を省き、他の最適化と組み合わさって効果を増幅します。"
+  },
+  {
+    id: "vocab-010",
+    category: "vocab-en",
+    q: "<b>Escape analysis</b>（エスケープ解析）が可能にする代表的な最適化は？",
+    options: [
+      "関数外へ漏れないオブジェクトをヒープではなくスタックに置く（スタック割り付け）",
+      "関数外へ漏れるオブジェクトを暗号化する",
+      "例外が発生しそうな行をスキップする",
+      "すべてのオブジェクトを必ずヒープに確保する"
+    ],
+    answer: 0,
+    explanation: "オブジェクトの寿命が当該スコープに閉じる（= escape しない）なら、ヒープ割り付けと GC 対象化を避けられます。これにより GC 負荷と割り付けコストの両方が減ります。"
+  },
+  {
+    id: "vocab-011",
+    category: "vocab-en",
+    q: "性能解析における <b>hot path</b> の意味として最も近いのは？",
+    options: [
+      "実行頻度が高く、最適化対象として価値の大きいコード経路",
+      "エラーが多発しているコード経路",
+      "CPU 温度センサーが最も反応する物理経路",
+      "スレッドがロック待ちで詰まっている経路"
+    ],
+    answer: 0,
+    explanation: "対語は <b>cold path</b>（滅多に実行されない経路）。JIT は hot path を検知してそこだけコンパイル対象にするのが定石です。"
+  },
+  {
+    id: "vocab-012",
+    category: "vocab-en",
+    q: "メモリ領域の <b>heap</b> と <b>stack</b> の違いで正しいのは？",
+    options: [
+      "stack は関数呼び出しのローカルに自動で確保・解放、heap は任意タイミングで確保・解放する領域",
+      "stack は GC 対象、heap は CPU が自動管理する",
+      "stack は OS 管理、heap は VM が絶対に触らない",
+      "両者は完全に同義"
+    ],
+    answer: 0,
+    explanation: "stack は LIFO、関数呼び出しと対応づいて自動管理。heap は任意の寿命を持つオブジェクトの置き場で、Ruby では GC が回収を担当します。"
+  },
+  {
+    id: "vocab-013",
+    category: "vocab-en",
+    q: "<b>Mark &amp; Sweep</b> 型 GC の 2 フェーズとは？",
+    options: [
+      "到達可能オブジェクトを辿って印を付ける → 印のないものを回収する",
+      "オブジェクトを世代ごとに分ける → 古い世代を破棄する",
+      "オブジェクトを圧縮する → 未使用領域を OS に返す",
+      "スレッドを止める → キャッシュをクリアする"
+    ],
+    answer: 0,
+    explanation: "ルートから参照を辿り「生きている」オブジェクトに <b>mark</b>、残りを <b>sweep</b> で解放する基本形。CRuby の GC もこの系譜に世代別や incremental を重ねた拡張です。"
+  },
+  {
+    id: "vocab-014",
+    category: "vocab-en",
+    q: "世代別 GC が前提とする「weak generational hypothesis（弱い世代別仮説）」とは？",
+    options: [
+      "新しく生成されたオブジェクトほど早く死ぬ傾向がある",
+      "古いオブジェクトほど参照が少ない",
+      "オブジェクトの寿命は完全にランダム",
+      "スレッド数に比例してオブジェクトが長生きする"
+    ],
+    answer: 0,
+    explanation: "この経験則を根拠に、<b>若い世代だけを頻繁に GC し、古い世代は稀に GC する</b>戦略で全体コストを下げます。"
+  },
+  {
+    id: "vocab-015",
+    category: "vocab-en",
+    q: "世代別 GC で <b>write barrier</b>（ライトバリア）が必要になる場面は？",
+    options: [
+      "古い世代のオブジェクトから新しい世代のオブジェクトへの参照が作られたことを記録するため",
+      "並列スレッドが同じ変数に書き込まないようブロックするため",
+      "ディスク書き込みを暗号化するため",
+      "標準出力への書き込みをバッファするため"
+    ],
+    answer: 0,
+    explanation: "マイナー GC（若い世代のみ）で古い世代を辿り直さずに済ませるには、古→若の参照をリメンバーセットに記録しておく必要があり、そのフックが write barrier です。"
+  },
+  {
+    id: "vocab-016",
+    category: "vocab-en",
+    q: "GC の <b>compaction</b>（コンパクション）が目指すものは？",
+    options: [
+      "メモリ上に散らばった生存オブジェクトを詰めてメモリ断片化を解消する",
+      "生存オブジェクトを可逆圧縮してサイズを半分にする",
+      "全オブジェクトを文字列化して保存する",
+      "オブジェクトの種類を 1 種類に統一する"
+    ],
+    answer: 0,
+    explanation: "Ruby にも <code>GC.compact</code> があり、オブジェクトを詰め直して空き領域を連続させます。これによりキャッシュ効率や巨大割り付けの成功率が上がります。",
+    reference: { label: "GC.compact", url: "https://docs.ruby-lang.org/en/master/GC.html" }
+  },
+  {
+    id: "vocab-017",
+    category: "vocab-en",
+    q: "<b>Concurrency</b> と <b>Parallelism</b> の違いで正しいのは？",
+    options: [
+      "Concurrency は複数処理を論理的に同時進行「させる」仕組み、Parallelism は物理的に同時実行「する」こと",
+      "Concurrency は CPU 専用、Parallelism は GPU 専用の概念",
+      "Concurrency は I/O、Parallelism は CPU の別名",
+      "両者は完全に同義で言い換え"
+    ],
+    answer: 0,
+    explanation: "concurrency は「取り回し」、parallelism は「同時に走らせる」。GVL のある Ruby の Thread は concurrent だが（原則）parallel ではない、という文脈でよく出てきます。"
+  },
+  {
+    id: "vocab-018",
+    category: "vocab-en",
+    q: "Thread と Process の関係として正しいのは？",
+    options: [
+      "Process は独立したメモリ空間を持ち、Thread は同一プロセス内でメモリを共有する実行単位",
+      "Thread は独立したメモリ空間を持ち、Process は共有メモリで動く",
+      "両者は同義",
+      "Process は OS、Thread は VM が作ると一意に決まっている"
+    ],
+    answer: 0,
+    explanation: "Process 間はアドレス空間が独立しているため相互に安全。Thread はメモリを共有するのでデータ競合に注意が要ります。"
+  },
+  {
+    id: "vocab-019",
+    category: "vocab-en",
+    q: "<b>Fiber</b>（コルーチン）の特徴として最も近いのは？",
+    options: [
+      "実行権の切替を明示的に行う、協調的な軽量実行単位",
+      "OS が強制的にスイッチする重いスレッド",
+      "プロセスを分割する単位",
+      "プロセスとスレッドをまたいで動くネットワークユニット"
+    ],
+    answer: 0,
+    explanation: "Ruby の <code>Fiber</code> は <code>Fiber.yield</code> / <code>resume</code> で明示的に切り替える coroutine。<code>Fiber.scheduler</code> で I/O 待ちを協調的にさばく async gem などの基盤にもなっています。",
+    reference: { label: "Fiber - Ruby docs", url: "https://docs.ruby-lang.org/en/master/Fiber.html" }
+  },
+  {
+    id: "vocab-020",
+    category: "vocab-en",
+    q: "Ruby の <b>GVL</b>（Global VM Lock）が Thread の実行にもたらす影響は？",
+    options: [
+      "1 プロセス内では原則として同時に 1 つの Thread しか Ruby コードを実行できない",
+      "Thread をいくつ作っても CPU 数分だけ並列実行される",
+      "Thread はすべて別プロセスとして fork される",
+      "Thread は完全に禁止されている"
+    ],
+    answer: 0,
+    explanation: "CRuby では GVL があるため Ruby コードの実行は 1 スレッドずつ。I/O 待ちの間は解放されるので concurrent な I/O は可能。真の parallel 実行には Ractor やプロセス分割を使います。"
+  },
+  {
+    id: "vocab-021",
+    category: "vocab-en",
+    q: "<b>M:N threading</b> モデルとは？",
+    options: [
+      "M 個のユーザー空間スレッドを N 個のネイティブスレッドにマッピングして実行する方式",
+      "M 個のプロセスを N 個の CPU に 1:1 固定する方式",
+      "M 個の関数呼び出しを N 段キャッシュする方式",
+      "M バイトのメモリを N スレッドで均等割りする方式"
+    ],
+    answer: 0,
+    explanation: "Ruby 3.3 で実験導入された MaNy もこの系統。多数の軽量スレッドを少数の OS スレッドに乗せ、スケジューラで切り替えることで Fiber / Thread のコストを下げます。",
+    reference: { label: "Ruby 3.3.0 Released", url: "https://www.ruby-lang.org/en/news/2023/12/25/ruby-3-3-0-released/" }
+  },
+  {
+    id: "vocab-022",
+    category: "vocab-en",
+    q: "ランタイムの <b>scheduler</b>（スケジューラ）の役割として最も近いのは？",
+    options: [
+      "複数の実行単位（Thread / Fiber 等）に対して、いつどれを走らせるかを決める",
+      "ディスク I/O をファイル単位で並べ替える",
+      "HTTP リクエストのルーティングを担当する",
+      "ソースコードのリントを行う"
+    ],
+    answer: 0,
+    explanation: "Ruby の <code>Fiber.scheduler</code> は、I/O 待ちで Fiber を切り替える責務を担うプラガブルな仕組み。async gem や falcon が具体実装を提供します。"
+  },
+  {
+    id: "vocab-023",
+    category: "vocab-en",
+    q: "<b>Gradual typing</b>（段階的型付け）とは？",
+    options: [
+      "同一言語内で、型を付ける箇所と付けない箇所を段階的に混在できる型システム",
+      "全ての変数に型を必ず付けることを強制する方式",
+      "型を完全に禁止して全部動的型にする方式",
+      "コンパイル時に型を全部消去する方式"
+    ],
+    answer: 0,
+    explanation: "Ruby の RBS / Steep / Sorbet もこの思想で、<b>型を後付けで少しずつ増やせる</b>のが特徴。Jeremy Siek による命名。"
+  },
+  {
+    id: "vocab-024",
+    category: "vocab-en",
+    q: "<b>Type inference</b>（型推論）とは？",
+    options: [
+      "型注釈がなくても、値の使われ方などから型を解析器が自動で決定すること",
+      "実行時に全ての型を String に変換すること",
+      "型を必ず明示的に注釈させる仕組み",
+      "型を暗号化して隠すこと"
+    ],
+    answer: 0,
+    explanation: "Ruby では <b>TypeProf</b> が AST を解析して型を推論し、RBS を自動生成します。Steep も部分的に推論機能を備えています。",
+    reference: { label: "TypeProf", url: "https://github.com/ruby/typeprof" }
+  },
+  {
+    id: "vocab-025",
+    category: "vocab-en",
+    q: "静的型付けと動的型付けの違いで最も近いのは？",
+    options: [
+      "静的はコンパイル時に型を検査、動的は実行時に型を検査する",
+      "静的は変数を変更不可、動的は必ず変更可",
+      "静的は関数型言語、動的はオブジェクト指向言語に限定される",
+      "静的は型を 1 つ、動的は型を無限に持つ"
+    ],
+    answer: 0,
+    explanation: "Ruby は動的型付け言語ですが、RBS などで外から静的検査を追加する「段階的型付け」路線も進んでいます。"
+  },
+  {
+    id: "vocab-026",
+    category: "vocab-en",
+    q: "Ruby 界でよく引かれる <b>duck typing</b> の発想に最も近いのは？",
+    options: [
+      "型の名前ではなく、オブジェクトが応答できるメソッドの有無で振る舞いを決める",
+      "全ての型を Duck という型に統一する",
+      "クラス継承を必ず使うべきというルール",
+      "インターフェースを必ず宣言してから実装する方式"
+    ],
+    answer: 0,
+    explanation: "「ガーガー鳴いてヨチヨチ歩くならそれはアヒルだ」。具体クラスを問わず、<code>respond_to?</code> 的な使い方で受け入れる動的型言語の柔軟さの象徴です。"
+  },
+  {
+    id: "vocab-027",
+    category: "vocab-en",
+    q: "プロファイラの <b>tracing profiler</b> と <b>sampling profiler</b> の違いとして最も近いのは？",
+    options: [
+      "tracing は呼び出しを網羅記録して精密だが重い、sampling は一定間隔のスナップショットで軽いが近似",
+      "tracing は軽量、sampling は重量級",
+      "両者は同義",
+      "tracing は CPU 専用、sampling はメモリ専用"
+    ],
+    answer: 0,
+    explanation: "本番で使うなら sampling、詳細な relationship を見たいなら tracing、と使い分けます。Ruby では stackprof（sampling）や vernier などが代表。"
+  },
+  {
+    id: "vocab-028",
+    category: "vocab-en",
+    q: "<b>Flame graph</b>（フレームグラフ）が主に可視化するのは？",
+    options: [
+      "スタックトレースごとの CPU 使用時間の積み上げ",
+      "メモリ使用量の時系列推移",
+      "ディスクのファイル断片化率",
+      "OS のフォントレンダリング時間"
+    ],
+    answer: 0,
+    explanation: "Brendan Gregg が広めた可視化手法。横軸は頻度、縦軸はスタックの深さで、どの関数が累計 CPU 時間を食っているかが一目でわかります。",
+    reference: { label: "Flame Graphs (Brendan Gregg)", url: "https://www.brendangregg.com/flamegraphs.html" }
+  },
+  {
+    id: "vocab-029",
+    category: "vocab-en",
+    q: "テスト文脈で <b>regression</b>（リグレッション）とは？",
+    options: [
+      "以前は動いていた機能が、後の変更で壊れること",
+      "性能を必ず線形回帰で測定すること",
+      "コミットを直前の状態に巻き戻す操作",
+      "機械学習の回帰分析そのもの"
+    ],
+    answer: 0,
+    explanation: "RubyKaigi のトークでも「regression を防ぐ」「regression test を足した」のように頻出。既に直ったバグが再発することも含みます。"
+  },
+  {
+    id: "vocab-030",
+    category: "vocab-en",
+    q: "<b>Observability</b> の文脈でよく挙げられる「3 本柱」とは？",
+    options: [
+      "Logs / Metrics / Traces",
+      "CPU / Memory / Disk",
+      "Frontend / Backend / Database",
+      "Latency / Throughput / Error rate"
+    ],
+    answer: 0,
+    explanation: "ログ・メトリクス・トレースの 3 種類が組み合わさって「システムの挙動を外から説明できる」状態を作る、という考え方。OpenTelemetry はこれらを横断的に扱う標準です。",
+    reference: { label: "OpenTelemetry", url: "https://opentelemetry.io/" }
+  },
+  {
+    id: "vocab-031",
+    category: "vocab-en",
+    q: "<b>REPL</b> の正式名称は？",
+    options: [
+      "Read-Eval-Print Loop",
+      "Recursive Evaluation Primitive Layer",
+      "Ruby Example Programming Language",
+      "Runtime Exception Printer Loop"
+    ],
+    answer: 0,
+    explanation: "入力を <b>Read</b>、<b>Eval</b>uate、<b>Print</b>、そして次の入力まで <b>Loop</b>する対話環境。Ruby 標準の <code>irb</code> や pry もこれです。"
+  },
+  {
+    id: "vocab-032",
+    category: "vocab-en",
+    q: "<b>DSL</b>（Domain Specific Language）が指すものは？",
+    options: [
+      "特定領域の問題を表現しやすくするために設計された、用途特化の言語や文法",
+      "データベース専用の SQL 方言",
+      "ダブルスタンダードライセンスの略",
+      "Ruby 2 系のみで動く旧式機能"
+    ],
+    answer: 0,
+    explanation: "Rails のルーティングや RSpec の <code>describe / it</code> も Ruby 上に構築された <b>internal DSL</b>。メタプログラミングと相性が良いのが Ruby の特徴です。"
+  },
+  {
+    id: "vocab-033",
+    category: "vocab-en",
+    q: "<b>FFI</b>（Foreign Function Interface）の役割は？",
+    options: [
+      "ある言語から別言語（多くは C）のライブラリ関数を呼び出すための仕組み",
+      "関数型言語だけで使える継承の仕組み",
+      "WebAssembly 専用のファイル形式",
+      "分散システム専用の RPC プロトコル"
+    ],
+    answer: 0,
+    explanation: "Ruby でも C 拡張や <code>ffi</code> gem を使って共有ライブラリを直接呼べます。GC・型・呼び出し規約のブリッジが FFI の主な関心事。",
+    reference: { label: "ffi gem", url: "https://github.com/ffi/ffi" }
+  },
+  {
+    id: "vocab-034",
+    category: "vocab-en",
+    q: "<b>SSA</b>（Static Single Assignment）形式の特徴は？",
+    options: [
+      "各変数がプログラム中でちょうど 1 回だけ代入される形に変換されている中間表現",
+      "静的型をすべて単一の型に統一する方式",
+      "変数名の付け方のスタイルガイド",
+      "Ruby 専用のクラス継承パターン"
+    ],
+    answer: 0,
+    explanation: "SSA 形式だと「この変数はどこで決まった値か」が一意に追えるため、定数伝播や dead code elimination などの最適化がやりやすくなります。多くの JIT/コンパイラ IR が SSA を採用しています。"
   }
 ];
