@@ -1132,7 +1132,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "<b>LALR(1)</b> = LookAhead LR(1)。LR(1) の状態をマージして実用サイズに収めた表駆動のボトムアップ解析法。Ruby の parse.y は長年 Bison（LALR 生成器）を、Ruby 3.3 以降は Ruby 製の <b>Lrama</b> を使っています。",
-    reference: { label: "RubyKaigi 2025: The Implementations of Advanced LR Parser Algorithm", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: The Implementations of Advanced LR Parser Algorithm", url: "https://rubykaigi.org/2025/presentations/junk0612.html" }
   },
   {
     id: "vocab-036",
@@ -1146,7 +1146,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "<b>IELR (Inadequate Elimination LR)</b> は LALR の弱点を補って LR(1) と等価な言語を扱いつつ表サイズも実用域に収めるアルゴリズム。Bison にも実装があり、Lrama の進化路線で注目されています。",
-    reference: { label: "RubyKaigi 2024: From LALR to IELR: A Lrama's Next Step", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: From LALR to IELR: A Lrama's Next Step", url: "https://rubykaigi.org/2024/presentations/junk0612.html#day3" }
   },
   {
     id: "vocab-037",
@@ -1160,7 +1160,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "従来は処理系ごとにパーサが分かれていましたが、<b>Prism</b> や PicoRuby コンパイラの流れで「どの Ruby 実装でも同じ結果を返せる共通パーサ」という発想が進んでいます。",
-    reference: { label: "RubyKaigi 2024: Unlock The Universal Parsers: A New PicoRuby Compiler", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Unlock The Universal Parsers: A New PicoRuby Compiler", url: "https://rubykaigi.org/2024/presentations/hasumikin.html#day2" }
   },
   {
     id: "vocab-038",
@@ -1174,7 +1174,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "Angluin の L* などの <b>automata learning</b> を使えば、ブラックボックスのパーサ挙動を学習し、旧実装と新実装の等価性チェックを自動化できます。",
-    reference: { label: "RubyKaigi 2025: Make Parsers Compatible Using Automata Learning", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Make Parsers Compatible Using Automata Learning", url: "https://rubykaigi.org/2025/presentations/makenowjust.html" }
   },
   {
     id: "vocab-039",
@@ -1188,7 +1188,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "<code>callcc</code>（call with current continuation）で取得する「この続きから再実行する」プリミティブ。現在は非推奨寄りで、Fiber / Enumerator が代替になります。",
-    reference: { label: "RubyKaigi 2025: Continuation is to be continued", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Continuation is to be continued", url: "https://rubykaigi.org/2025/presentations/fetburner.html" }
   },
   {
     id: "vocab-040",
@@ -1202,7 +1202,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "Ruby のような動的言語では monkey patch や shape 変化などで JIT の仮定が崩れ得ます。そのとき安全に戻るのが <b>deopt</b>。楽観的最適化とフォールバックの両立を可能にします。",
-    reference: { label: "RubyKaigi 2025: Deoptimization: How YJIT Speeds Up Ruby by Slowing Down", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Deoptimization: How YJIT Speeds Up Ruby by Slowing Down", url: "https://rubykaigi.org/2025/presentations/k0kubun.html" }
   },
   {
     id: "vocab-041",
@@ -1216,7 +1216,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "Truffle 系で研究された block splitting。同じブロックが異なる文脈で呼ばれると型情報が暈けるため、呼び出しごとに特殊化すると型推論や inline が効いて速くなります。",
-    reference: { label: "RubyKaigi 2023: Splitting: the Crucial Optimization for Ruby Blocks", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Splitting: the Crucial Optimization for Ruby Blocks", url: "https://rubykaigi.org/2023/presentations/eregontp.html#day2" }
   },
   {
     id: "vocab-042",
@@ -1230,7 +1230,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "例: キーワード引数の Hash 化、一時的な文字列コピー、Range の生成など。表に書いていない allocation をどう削るかが性能チューニングの定番トピックです。",
-    reference: { label: "RubyKaigi 2025: Eliminating Unnecessary Implicit Allocations", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Eliminating Unnecessary Implicit Allocations", url: "https://rubykaigi.org/2025/presentations/jeremyevans0.html" }
   },
   {
     id: "vocab-043",
@@ -1244,7 +1244,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "インスタンス生成は極めてホットな処理。object shape 活用や inline、軽い <code>initialize</code> のバイパスなど、毎年のように最適化が積み重ねられています。",
-    reference: { label: "RubyKaigi 2025: Speeding up Class#new", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new", url: "https://rubykaigi.org/2025/presentations/tenderlove.html" }
   },
   {
     id: "vocab-044",
@@ -1258,7 +1258,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "Ruby のインスタンス変数は object shape によるフラット管理が主ですが、shape が膨らむケースで平衡木が効く余地がある、という探求。赤黒木は平衡二分木の代表例です。",
-    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees", url: "https://rubykaigi.org/2024/presentations/tenderlove.html#day3" }
   },
   {
     id: "vocab-045",
@@ -1272,7 +1272,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "ブリストル大学発の OSS プロジェクト。Java / V8 / CRuby など複数の処理系に GC バックエンドを提供するのが目標で、Ruby の Modular GC から呼び出す先の候補として有力。",
-    reference: { label: "RubyKaigi 2023: Plug & Play Garbage Collection with MMTk", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Plug & Play Garbage Collection with MMTk", url: "https://rubykaigi.org/2023/presentations/eightbitraptor.html#day1" }
   },
   {
     id: "vocab-046",
@@ -1286,7 +1286,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "長らく CRuby 本体と密結合だった GC を、インターフェース越しに差し替え可能にする取り組み。MMTk など実験的な GC を試す下地になります。",
-    reference: { label: "RubyKaigi 2025: Modular Garbage Collectors in Ruby", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Modular Garbage Collectors in Ruby", url: "https://rubykaigi.org/2025/presentations/peterzhu2118.html" }
   },
   {
     id: "vocab-047",
@@ -1300,7 +1300,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "Ractor はメモリが原則独立。GC もそれぞれ局所に閉じられれば、世界を止めない（stop-the-world にしない）並列 GC の実現に近づきます。",
-    reference: { label: "RubyKaigi 2025: Toward Ractor local GC", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Toward Ractor local GC", url: "https://rubykaigi.org/2025/presentations/ko1.html" }
   },
   {
     id: "vocab-048",
@@ -1314,7 +1314,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "C のコールスタックやレジスタには生ポインタが流れるため、CRuby の GC は保守的に scanning して参照を集めます。SDB はこれを GVL 解放状態で効率化するテーマ。",
-    reference: { label: "RubyKaigi 2025: SDB: Efficient Ruby Stack Scanning Without the GVL", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: SDB: Efficient Ruby Stack Scanning Without the GVL", url: "https://rubykaigi.org/2025/presentations/yfractal.html" }
   },
   {
     id: "vocab-049",
@@ -1328,7 +1328,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "「片方が遅かったら待ちぼうけ」にならないよう、両スタックに race をさせる発想。Ruby でも <code>Socket.tcp</code> などに Happy Eyeballs が取り込まれました。",
-    reference: { label: "RubyKaigi 2024: An adventure of Happy Eyeballs", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: An adventure of Happy Eyeballs", url: "https://rubykaigi.org/2024/presentations/coe401_.html#day1" }
   },
   {
     id: "vocab-050",
@@ -1342,7 +1342,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "従来の PID は再利用で誤ったプロセスを指しうる問題がありましたが、<b>pidfd</b>（pid file descriptor）は「この fd が有効な限り同じプロセスを指す」と保証する Linux API。Ruby から扱うブリッジが 2025 のテーマ。",
-    reference: { label: "RubyKaigi 2025: Bringing Linux pidfd to Ruby", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Bringing Linux pidfd to Ruby", url: "https://rubykaigi.org/2025/presentations/maciejmensfeld.html" }
   },
   {
     id: "vocab-051",
@@ -1356,7 +1356,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "Google 発、IETF で標準化（RFC 9000 系）。TLS 1.3 相当の暗号化を内蔵、ハンドシェイク短縮、ヘッドオブラインブロッキング解消が持ち味。Ruby でも純 Ruby 実装の試みが続きます。",
-    reference: { label: "RubyKaigi 2023: Ruby Implementation of QUIC: Progress and Challenges", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Ruby Implementation of QUIC: Progress and Challenges", url: "https://rubykaigi.org/2023/presentations/yu_suke1994.html#day2" }
   },
   {
     id: "vocab-052",
@@ -1370,7 +1370,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "OpenGL の後継として Khronos Group が策定した低水準 API。Ruby のバインディングを書いてリアルタイム 3D を扱う尖った発表も RubyKaigi の名物。",
-    reference: { label: "RubyKaigi 2023: High-performance real-time 3D graphics with Vulkan", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: High-performance real-time 3D graphics with Vulkan", url: "https://rubykaigi.org/2023/presentations/fredolinhares.html#day1" }
   },
   {
     id: "vocab-053",
@@ -1384,7 +1384,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "破滅的バックトラック（catastrophic backtracking）を起こす正規表現に攻撃者が意図した入力を送り、CPU を食い潰す攻撃。Ruby 3.2 では正規表現タイムアウト機構が導入されました。",
-    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2", url: "https://rubykaigi.org/2023/presentations/lmt_swallow.html#day2" }
   },
   {
     id: "vocab-054",
@@ -1398,7 +1398,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "RLO/LRO など Bidi コントロール文字を混ぜ込むと、人間が見ている順序とパーサが解釈する順序を入れ替えられます。Ruby のソースでも成立するため、レビュー・エディタ両面での対策が必要。",
-    reference: { label: "RubyKaigi 2023: On Ruby and ꝩduЯ, or How Scary are Trojan Source Attacks", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: On Ruby and ꝩduЯ, or How Scary are Trojan Source Attacks", url: "https://rubykaigi.org/2023/presentations/duerst.html#day2" }
   },
   {
     id: "vocab-055",
@@ -1412,7 +1412,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "OpenSSF のプロジェクト。短寿命証明書（Fulcio）と透過ログ（Rekor）を組み合わせ、鍵の長期管理を不要にします。Ruby gem に適用する <code>sigstore-ruby</code> の取り組みが進行中。",
-    reference: { label: "RubyKaigi 2025: The Challenges of Building sigstore-ruby", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: The Challenges of Building sigstore-ruby", url: "https://rubykaigi.org/2025/presentations/segiddins.html" }
   },
   {
     id: "vocab-056",
@@ -1426,7 +1426,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "RBS とは別系統の型システム。<code>.rbi</code> ファイルによる宣言と <code>T.let</code> / <code>T.must</code> などの型アサーション構文、エディタ連携の速さが特徴。",
-    reference: { label: "RubyKaigi 2023: Gradual typing for Ruby: comparing RBS and RBI/Sorbet", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Gradual typing for Ruby: comparing RBS and RBI/Sorbet", url: "https://rubykaigi.org/2023/presentations/Morriar.html#day3" }
   },
   {
     id: "vocab-057",
@@ -1440,7 +1440,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "<b>RBI = Ruby Interface</b>。gem 用、プロジェクト固有、Tapioca による自動生成分など複数カテゴリに分けて管理するのが一般的。",
-    reference: { label: "RubyKaigi 2023: Generating RBIs for dynamic mixins with Sorbet and Tapioca", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Generating RBIs for dynamic mixins with Sorbet and Tapioca", url: "https://rubykaigi.org/2023/presentations/egiurleo.html#day1" }
   },
   {
     id: "vocab-058",
@@ -1454,7 +1454,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "Shopify 発。Rails のようにメタプログラミングで生成されるメソッドも、Tapioca がランタイム観察して型情報に落としてくれます。",
-    reference: { label: "RubyKaigi 2023: Generating RBIs for dynamic mixins with Sorbet and Tapioca", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Generating RBIs for dynamic mixins with Sorbet and Tapioca", url: "https://rubykaigi.org/2023/presentations/egiurleo.html#day1" }
   },
   {
     id: "vocab-059",
@@ -1468,7 +1468,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "TypeScript 経由で広まった概念。Steep にも導入が進み、<code>case x in Integer</code> のようなパターンマッチで以降のブロック内の型を絞れる方向です。",
-    reference: { label: "RubyKaigi 2025: Introducing Type Guard to Steep", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Introducing Type Guard to Steep", url: "https://rubykaigi.org/2025/presentations/tk0miya.html" }
   },
   {
     id: "vocab-060",
@@ -1482,7 +1482,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "VS Code 由来の業界標準。Ruby でも Ruby LSP、Solargraph、RuboCop の LSP 実装などが並立しています。",
-    reference: { label: "RubyKaigi 2023: Code indexing: How language servers understand our code", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Code indexing: How language servers understand our code", url: "https://rubykaigi.org/2023/presentations/vinistock.html#day3" }
   },
   {
     id: "vocab-061",
@@ -1496,7 +1496,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "プロファイラやデバッガの土台。Observability 系の発表では、TracePoint のオーバーヘッドを下げる/専用 API を足す議論が頻出します。",
-    reference: { label: "RubyKaigi 2025: Performance Bugs and Low-level Ruby Observability APIs", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Performance Bugs and Low-level Ruby Observability APIs", url: "https://rubykaigi.org/2025/presentations/KnuX.html" }
   },
   {
     id: "vocab-062",
@@ -1510,7 +1510,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "Shopify の John Hawthorn さん主導。Firefox Profiler 互換の出力で、GVL 解放中や GC のアクティビティも含めて flame graph が引けるのが強み。",
-    reference: { label: "RubyKaigi 2024: Vernier: A next generation profiler for CRuby", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Vernier: A next generation profiler for CRuby", url: "https://rubykaigi.org/2024/presentations/jhawthorn.html#day1" }
   },
   {
     id: "vocab-063",
@@ -1524,7 +1524,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "Haskell の QuickCheck が起源。Ruby では <code>rantly</code> や <code>hypothesis-ruby</code> などが実装例。Ractor で並列化するアイデアが 2024 の登壇テーマ。",
-    reference: { label: "RubyKaigi 2024: Unlocking Potential of Property Based Testing with Ractor", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Unlocking Potential of Property Based Testing with Ractor", url: "https://rubykaigi.org/2024/presentations/ohbarye.html#day1" }
   },
   {
     id: "vocab-064",
@@ -1538,7 +1538,7 @@ const QUESTIONS = [
     ],
     answer: 2,
     explanation: "LLVM / GCC に同梱される動的解析ツール。CRuby は C 拡張の塊なので、ASAN で本体を走らせるとメモリ安全性のバグを発掘できます。",
-    reference: { label: "RubyKaigi 2024: Finding and fixing memory safety bugs in C with ASAN", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Finding and fixing memory safety bugs in C with ASAN", url: "https://rubykaigi.org/2024/presentations/KJTsanaktsidis.html#day3" }
   },
   {
     id: "vocab-065",
@@ -1552,7 +1552,7 @@ const QUESTIONS = [
     ],
     answer: 0,
     explanation: "モノレポ運用で人気のビルドシステム。BUILD ファイルで依存を宣言し、キャッシュとサンドボックスで再現性を担保します。Ruby プロジェクトに適用する試みが 2025 の登壇テーマ。",
-    reference: { label: "RubyKaigi 2025: Bazel for Ruby", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Bazel for Ruby", url: "https://rubykaigi.org/2025/presentations/p0deje.html" }
   },
   {
     id: "vocab-066",
@@ -1566,7 +1566,7 @@ const QUESTIONS = [
     ],
     answer: 1,
     explanation: "GNU readline に依存せず、Unicode 幅・マルチライン・ヒストリ・補完を純 Ruby で提供。IRB のマルチライン編集体験を支えています。",
-    reference: { label: "RubyKaigi 2024: Exploring Reline: Enhancing Command Line Usability", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Exploring Reline: Enhancing Command Line Usability", url: "https://rubykaigi.org/2024/presentations/ima1zumi.html#day1" }
   },
   {
     id: "vocab-067",
@@ -1580,7 +1580,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "<code>Marshal.dump</code> / <code>Marshal.load</code> で使う直列化機構。互換性やセキュリティ（任意オブジェクトを復元できてしまう危険性）が永年のトピック。",
-    reference: { label: "RubyKaigi 2024: Remembering (ok, not really Sarah) Marshal", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Remembering (ok, not really Sarah) Marshal", url: "https://rubykaigi.org/2024/presentations/segiddins.html#day1" }
   },
   {
     id: "vocab-068",
@@ -1594,7 +1594,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "現在は Ruby に標準同梱の YAML ライブラリ。Aaron Patterson（tenderlove）さんが作りました。コメント保持や安全ロード（<code>YAML.safe_load</code>）が議論の的。",
-    reference: { label: "RubyKaigi 2024: Getting along with YAML comments with Psych", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: Getting along with YAML comments with Psych", url: "https://rubykaigi.org/2024/presentations/qnighy.html#day2" }
   },
   {
     id: "vocab-069",
@@ -1608,7 +1608,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "REXML や ERB のパース、小さな DSL のレキサー実装などで頻出。<code>scan</code> / <code>match?</code> / <code>pos</code> で位置を進めつつ検査できます。",
-    reference: { label: "RubyKaigi 2025: Improvement of REXML and speed up using StringScanner", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Improvement of REXML and speed up using StringScanner", url: "https://rubykaigi.org/2025/presentations/naitoh.html" }
   },
   {
     id: "vocab-070",
@@ -1622,7 +1622,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "<b>ERB = Embedded Ruby</b>。テキストに Ruby 式を埋め込むテンプレートエンジンで、Rails のビューや scaffolding で定番です。",
-    reference: { label: "RubyKaigi 2024: ERB, ancient and future", url: "https://rubykaigi.org/2024/schedule" }
+    reference: { label: "RubyKaigi 2024: ERB, ancient and future", url: "https://rubykaigi.org/2024/presentations/m_seki.html#day3" }
   },
   {
     id: "vocab-071",
@@ -1636,7 +1636,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "Windows など C コンパイラが揃いにくい環境向けに、ネイティブ拡張をビルド済みで含めてしまう配布形式。メンテ負荷が高く、最近はプラットフォーム別 gem への移行が進んでいます。",
-    reference: { label: "RubyKaigi 2025: Goodbye fat gem 2025", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: Goodbye fat gem 2025", url: "https://rubykaigi.org/2025/presentations/ktou.html" }
   },
   {
     id: "vocab-072",
@@ -1650,7 +1650,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "単一バイナリ化することで配布先に Ruby 実行環境を要求せずに済み、CLI ツールやアプリ配布に向きます。",
-    reference: { label: "RubyKaigi 2025: The Ruby One-Binary Tool, Enhanced with Kompo", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: The Ruby One-Binary Tool, Enhanced with Kompo", url: "https://rubykaigi.org/2025/presentations/ahogappa.html" }
   },
   {
     id: "vocab-073",
@@ -1664,7 +1664,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "tagomoris さんらが進める実験機能。現在はグローバルに混ざってしまう定数・メソッドをスコープ化し、依存 gem の改変が他に漏れない世界を目指します。",
-    reference: { label: "RubyKaigi 2025: State of Namespace", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: State of Namespace", url: "https://rubykaigi.org/2025/presentations/tagomoris.html" }
   },
   {
     id: "vocab-074",
@@ -1678,7 +1678,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "ODBC / JDBC に並ぶ新世代の接続規格で、結果を Arrow のカラム型で直接受け取れるのが強み。Ruby バインディングで分析用途に活用する道が開けます。",
-    reference: { label: "RubyKaigi 2023: Ruby + ADBC - A single API between Ruby and DBs", url: "https://rubykaigi.org/2023/schedule" }
+    reference: { label: "RubyKaigi 2023: Ruby + ADBC - A single API between Ruby and DBs", url: "https://rubykaigi.org/2023/presentations/ktou.html#day3" }
   },
   {
     id: "vocab-075",
@@ -1692,7 +1692,7 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "<code>Warning.warn</code> をフックに段階的な移行を促します。2025 では、警告の発生箇所を捕まえて自動で書き換え候補を提案するアイデアが紹介されました。",
-    reference: { label: "RubyKaigi 2025: On-the-fly Suggestions of Rewriting Method Deprecations", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: On-the-fly Suggestions of Rewriting Method Deprecations", url: "https://rubykaigi.org/2025/presentations/ohbarye.html" }
   },
   {
     id: "vocab-076",
@@ -1706,6 +1706,6 @@ const QUESTIONS = [
     ],
     answer: 3,
     explanation: "<b>TRICK = Transcendental Ruby Imbroglio Contest for rubyKaigi</b>。通常の書き方から大きく外れた Ruby コードの美と技を競う催しで、mame さんらによる伝説的作品が多数。2025 では Episode I として復活しました。",
-    reference: { label: "RubyKaigi 2025: TRICK 2025: Episode I", url: "https://rubykaigi.org/2025/schedule" }
+    reference: { label: "RubyKaigi 2025: TRICK 2025: Episode I", url: "https://rubykaigi.org/2025/presentations/tric.html" }
   }
 ];
