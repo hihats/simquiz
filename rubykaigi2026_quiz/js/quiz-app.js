@@ -17,7 +17,7 @@
 
 (function () {
   const repo = new QuizRepository(QUESTIONS, CATEGORIES);
-  const selectedCats = new Set(CATEGORIES.map(c => c.id)); // default: all categories on
+  const selectedCats = new Set(); // default: nothing selected; user explicitly chooses
   let currentSession = null;
 
   // ------------------ event handlers ------------------
