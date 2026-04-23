@@ -72,9 +72,10 @@
 </div>
 
 <!-- Load order: data → core (pure logic) → view (DOM) → app (wiring) -->
-<script src="js/quiz-data.js"></script>
-<script src="js/quiz-core.js"></script>
-<script src="js/quiz-view.js"></script>
-<script src="js/quiz-app.js"></script>
+<!-- ?v=<date> query busts browser cache on every deploy that touches JS. Bump manually. -->
+<script src="js/quiz-data.js?v=20260423"></script>
+<script src="js/quiz-core.js?v=20260423"></script>
+<script src="js/quiz-view.js?v=20260423"></script>
+<script src="js/quiz-app.js?v=20260423"></script>
 </body>
 </html>
