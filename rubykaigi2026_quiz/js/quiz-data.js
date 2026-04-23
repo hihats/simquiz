@@ -1707,5 +1707,640 @@ const QUESTIONS = [
     answer: 3,
     explanation: "<b>TRICK = Transcendental Ruby Imbroglio Contest for rubyKaigi</b>。通常の書き方から大きく外れた Ruby コードの美と技を競う催しで、mame さんらによる伝説的作品が多数。2025 では Episode I として復活しました。",
     reference: { label: "RubyKaigi 2025: TRICK 2025: Episode I", url: "https://rubykaigi.org/2025/presentations/tric.html" }
+  },
+
+  // ==================================================
+  // CATEGORY: RubyKaigi頻出英語（実セッションの英単語「意味」問題）
+  // 出典は各問 reference に、speakerdeck のスライド or rubykaigi.org の abstract を明記
+  // ==================================================
+  {
+    id: "vocab-077",
+    category: "vocab-en",
+    q: "<b>speculatively</b>（副詞）の意味として最も近いのは？",
+    options: [
+      "確実ではないが先読みして（投機的に）",
+      "確実に根拠を示しながら",
+      "計画通りに段階的に",
+      "無作為に手当たり次第に"
+    ],
+    answer: 0,
+    explanation: "<b>speculate</b> は「推測する・当て推量する」。JIT 最適化の文脈では「後で崩れるかもしれない前提で先に最適化する」投機的実行のニュアンスで使われます。",
+    reference: { label: "RubyKaigi 2025: Deoptimization / k0kubun のスライド", url: "https://speakerdeck.com/k0kubun/rubykaigi-2025" }
+  },
+  {
+    id: "vocab-078",
+    category: "vocab-en",
+    q: "<b>invalidate</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "新しく作成して登録する",
+      "それまで有効だったものを無効にする",
+      "一時的に保留する",
+      "失敗を記録しておく"
+    ],
+    answer: 1,
+    explanation: "<b>in-</b>（否定）+ <b>validate</b>（有効化する）。キャッシュや JIT の前提が崩れた時に「以前のものを無効にする」操作で頻出。",
+    reference: { label: "RubyKaigi 2025: Deoptimization / k0kubun のスライド", url: "https://speakerdeck.com/k0kubun/rubykaigi-2025" }
+  },
+  {
+    id: "vocab-079",
+    category: "vocab-en",
+    q: "<b>invalidation</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "入力検証",
+      "新規登録処理",
+      "無効化すること（有効状態を取り消す行為）",
+      "エラーログの出力"
+    ],
+    answer: 2,
+    explanation: "<b>invalidate</b> の名詞形。JIT / キャッシュで「前提が崩れた状態を反映して無効化する」工程を指します。",
+    reference: { label: "RubyKaigi 2025: Deoptimization / k0kubun のスライド", url: "https://speakerdeck.com/k0kubun/rubykaigi-2025" }
+  },
+  {
+    id: "vocab-080",
+    category: "vocab-en",
+    q: "<b>patching</b>（動名詞）の意味として最も近いのは？",
+    options: [
+      "一からコードを書き直すこと",
+      "部品ごとに関数を呼び分けること",
+      "変更を文書にまとめること",
+      "コードの一部に修正・つぎあてを当てること"
+    ],
+    answer: 3,
+    explanation: "<b>patch</b>（つぎあて）の ing 形。JIT では実行中のコード列に書き換えを当てる <b>code patching</b> が頻出。",
+    reference: { label: "RubyKaigi 2025: Deoptimization / k0kubun のスライド", url: "https://speakerdeck.com/k0kubun/rubykaigi-2025" }
+  },
+  {
+    id: "vocab-081",
+    category: "vocab-en",
+    q: "コンパイラ / VM 文脈の <b>primitive</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "それ以上分解できない基本要素・組み込みの部品",
+      "原始的で使われなくなった機能",
+      "簡易なプロトタイプ",
+      "商用リリース前のアルファ版"
+    ],
+    answer: 0,
+    explanation: "言語処理系で「これ以上分解できない基礎操作」。Ruby の <code>Primitive.xxx</code> は VM に組み込まれた低水準オペレーションを呼ぶ識別子。",
+    reference: { label: "RubyKaigi 2025: Deoptimization / k0kubun のスライド", url: "https://speakerdeck.com/k0kubun/rubykaigi-2025" }
+  },
+  {
+    id: "vocab-082",
+    category: "vocab-en",
+    q: "<b>competent</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "競争心が強い",
+      "十分な能力がある・一人前の",
+      "予算内で収まる",
+      "完璧主義の"
+    ],
+    answer: 1,
+    explanation: "<b>competence</b>（能力）の形容詞。tenderlove の引用「any competent programmer」= 「まともに書ける開発者なら誰でも」。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-083",
+    category: "vocab-en",
+    q: "<b>introductory</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "専門書レベルの",
+      "難解で手が出ない",
+      "入門の・導入的な",
+      "中級から上級への橋渡しの"
+    ],
+    answer: 2,
+    explanation: "<b>introduce</b>（紹介する）の形容詞。「introductory computer science classes」= 情報科学の入門クラス。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-084",
+    category: "vocab-en",
+    q: "<b>tremble</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "笑い飛ばす",
+      "じっと耐える",
+      "怒りをあらわにする",
+      "（恐怖や寒さで）震える"
+    ],
+    answer: 3,
+    explanation: "tenderlove の引用「even the stouthearted tremble at the thought…」は「勇敢な者ですらその考えに震える」。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-085",
+    category: "vocab-en",
+    q: "<b>stouthearted</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "勇敢な・気丈な",
+      "心配性の",
+      "慎重でゆっくり動く",
+      "体格が大きい"
+    ],
+    answer: 0,
+    explanation: "stout（どっしりとした）+ hearted（心を持った）。文語寄りで「勇敢な」。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-086",
+    category: "vocab-en",
+    q: "<b>reassemble</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "再度集合させて会議を開く",
+      "一度ばらした要素を組み直す",
+      "文字列を連結する",
+      "データを圧縮する"
+    ],
+    answer: 1,
+    explanation: "re-（再）+ assemble（組み立てる）。パターンマッチで <b>deconstruct</b> → <b>reassemble</b> の対で使われます。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-087",
+    category: "vocab-en",
+    q: "<b>deconstruct</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "破壊しつくす",
+      "別の建物に移す",
+      "構造を分解して個々の要素に取り出す",
+      "抽象度を上げて概念化する"
+    ],
+    answer: 2,
+    explanation: "de-（解く）+ construct（組み立てる）。Ruby のパターンマッチでは <code>deconstruct</code> メソッドで「配列 / ハッシュの形に分解する」インターフェース。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-088",
+    category: "vocab-en",
+    q: "<b>violations</b>(名詞・複数)の意味として最も近いのは？",
+    options: [
+      "変更点",
+      "記録",
+      "重複",
+      "（ルール・制約を）破ること／違反"
+    ],
+    answer: 3,
+    explanation: "<b>violate</b>（破る）の名詞形。Red-Black Tree の文脈では「ルール違反（= 不変条件を破った状態）」。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-089",
+    category: "vocab-en",
+    q: "<b>rebalancing</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "バランスを取り直すこと（再平衡化）",
+      "データをバックアップすること",
+      "再計算してキャッシュを作ること",
+      "警告を 1 つずつ潰していくこと"
+    ],
+    answer: 0,
+    explanation: "平衡二分木で挿入 / 削除のあとに「再平衡」する処理。一般にも「負荷分散を取り直す」の意味で使われます。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-090",
+    category: "vocab-en",
+    q: "木構造・クラス階層文脈の <b>ancestor</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "重要な後継者",
+      "祖先・上位にある要素",
+      "一番若い孫要素",
+      "分岐した兄弟要素"
+    ],
+    answer: 1,
+    explanation: "木 / 継承階層で「自分より上の（親側の）要素」。Ruby では <code>Module#ancestors</code> でクラスの祖先連鎖を確認できます。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-091",
+    category: "vocab-en",
+    q: "<b>memoization</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "メモ帳にアイデアを書き残すこと",
+      "記憶力を鍛えるトレーニング",
+      "一度計算した結果をキャッシュして次回から再利用すること",
+      "ログファイルの自動圧縮"
+    ],
+    answer: 2,
+    explanation: "<code>@x ||= expensive</code> のような「一度計算した結果を覚えて次回以降使い回す」パターンの総称。",
+    reference: { label: "RubyKaigi 2024: Speeding up Instance Variables with Red-Black Trees / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/speeding-up-instance-variables-in-ruby-3-dot-3" }
+  },
+  {
+    id: "vocab-092",
+    category: "vocab-en",
+    q: "<b>monomorphic</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "複数の異なる型を柔軟に扱える",
+      "毎回コピーを作る",
+      "他モジュールから見えない",
+      "ただ 1 種類の型に特化した（単相の）"
+    ],
+    answer: 3,
+    explanation: "mono-（単一）+ morphic（形）。インラインキャッシュが「1 クラス専用に最適化された状態」が monomorphic、対義は polymorphic / megamorphic。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-093",
+    category: "vocab-en",
+    q: "<b>monkey-patch</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "既存のクラスやメソッドを実行時に強引に書き換える",
+      "複数パッチを 1 つにまとめる",
+      "動作の怪しい箇所にコメントを残す",
+      "猿のマスコットを画面に表示する"
+    ],
+    answer: 0,
+    explanation: "Ruby のメタプログラミング伝統芸。便利だが副作用が大きく、近年は <b>refinement</b> や <b>namespace</b> で代替が議論されています。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-094",
+    category: "vocab-en",
+    q: "<b>decouple</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "2 つの要素を結びつけて組にする",
+      "絡んでいた 2 つの要素を切り離して独立させる",
+      "2 人 1 組でレビューする文化を作る",
+      "冗長な機能を 1 つに統合する"
+    ],
+    answer: 1,
+    explanation: "<b>couple</b>（結合する）の反意。呼び出し側と呼ばれる側を切り離すことで、変更耐性とテスト容易性を上げます。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-095",
+    category: "vocab-en",
+    q: "<b>friction</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "衝突時に出るエラー",
+      "資源の浪費",
+      "動きを妨げる摩擦・ひっかかり",
+      "処理を加速させる触媒"
+    ],
+    answer: 2,
+    explanation: "物理の摩擦の比喩。RubyKaigi では言語境界（C ↔ Ruby）や開発体験の「引っかかり」を指して使われます。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-096",
+    category: "vocab-en",
+    q: "コンパイラ / VM 最適化文脈の <b>specialized</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "一般用途向けにした",
+      "複数の役割を兼ねさせた",
+      "誰にでも分かるように簡単化した",
+      "特定の用途や型に特化して最適化した"
+    ],
+    answer: 3,
+    explanation: "呼び出し元や引数の型に応じて「この場合専用の高速コード」を用意する最適化。splitting と相性が良い概念。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-097",
+    category: "vocab-en",
+    q: "プログラミング文脈の <b>convention</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "（明文ルールではないが）広く合意されている作法・取り決め",
+      "正式な法律条文",
+      "1 回限りの特例合意",
+      "顧客との契約書"
+    ],
+    answer: 0,
+    explanation: "<b>calling convention</b>（呼び出し規約）は「引数はどこに置き、戻り値はどう返すか」など、コンパイラ / CPU 間の取り決め。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-098",
+    category: "vocab-en",
+    q: "<b>callee</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "呼び出しを行う側",
+      "呼び出される側（被呼出者）",
+      "電話交換手",
+      "呼び出しログを保存するストレージ"
+    ],
+    answer: 1,
+    explanation: "caller（呼び手）に対する <b>callee</b>（呼ばれる側）。関数呼び出し規約では双方を区別して議論します。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-099",
+    category: "vocab-en",
+    q: "<b>downsides</b>(名詞・複数)の意味として最も近いのは？",
+    options: [
+      "階段の下り方",
+      "選ばなかった選択肢の総称",
+      "欠点・負の側面",
+      "改善が期待できる余地"
+    ],
+    answer: 2,
+    explanation: "<b>down</b>（下）+ <b>side</b>（側面）。上向き（benefit）の反対で、「代わりに払うコスト」的な意味合い。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
+  },
+  {
+    id: "vocab-100",
+    category: "vocab-en",
+    q: "メモリ / GC 文脈の <b>retained</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "再取得した",
+      "再起動したばかりの",
+      "同期していない",
+      "（解放されず）保持され続けている"
+    ],
+    answer: 3,
+    explanation: "<b>retain</b>（保持する）の過去分詞。<b>retained memory</b> は「GC で回収されずに残り続けているメモリ」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-101",
+    category: "vocab-en",
+    q: "<b>contention</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "複数の処理が同じ資源を奪い合っている状態",
+      "契約条件の交渉",
+      "議論の争点",
+      "内容の要約"
+    ],
+    answer: 0,
+    explanation: "<b>contend</b>（争う）の名詞。<b>GVL contention</b> は「スレッドが GVL の取得で詰まっている」状態。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-102",
+    category: "vocab-en",
+    q: "<b>stalled</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "必要な処理を終えた",
+      "動きが止まって停滞している",
+      "並列化に成功した",
+      "優先度を下げられた"
+    ],
+    answer: 1,
+    explanation: "<b>stall</b>（失速 / 停まる）の過去分詞。Vernier のスレッド状態区分で「GVL を取ろうとして詰まって動けない」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-103",
+    category: "vocab-en",
+    q: "<b>postponed</b>（形容詞 / 過去分詞）の意味として最も近いのは？",
+    options: [
+      "自動的に繰り返される",
+      "完全に中止された",
+      "後の時点に繰り越された・遅延させられた",
+      "別のプロセスに委譲された"
+    ],
+    answer: 2,
+    explanation: "<b>post-</b>（後）+ <b>pone</b>（置く）。Ruby の <b>postponed job</b> は「安全なタイミングまで実行を遅らせるコールバック」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-104",
+    category: "vocab-en",
+    q: "ソフトウェア文脈の <b>overhead</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "画面上部のナビゲーション領域",
+      "プロジェクトの管理職",
+      "解消済みの技術的負債",
+      "本来の処理に加えて必要になる追加コスト"
+    ],
+    answer: 3,
+    explanation: "直訳は「頭上の」だが、ソフトウェア文脈では「本質的でない余分なコスト（CPU 時間・メモリ・遅延）」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-105",
+    category: "vocab-en",
+    q: "<b>instrumentation</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "観測・計測のためにコードにフックを仕込む仕組み",
+      "楽器の構成",
+      "自動化スクリプトの実行履歴",
+      "新規に導入する機材の台帳"
+    ],
+    answer: 0,
+    explanation: "<b>instrument</b>（計器、計測する）の名詞形。Vernier の「GC instrumentation」は GC 挙動を計測するためのフック群。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-106",
+    category: "vocab-en",
+    q: "<b>dedicated</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "複数人で共有する",
+      "特定の用途・相手のために専用になっている",
+      "自発的に辞退した",
+      "半ば壊れている"
+    ],
+    answer: 1,
+    explanation: "<b>dedicate</b>（捧げる）の過去分詞。<b>dedicated thread</b> は「他用途と共有せず特定タスク専用に割り当てたスレッド」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-107",
+    category: "vocab-en",
+    q: "ロック文脈の <b>acquire</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "尋問する",
+      "仕様を要求する",
+      "取得する・獲得する",
+      "省略する"
+    ],
+    answer: 2,
+    explanation: "「ロックを acquire する」= 獲得する。反意は <b>release</b>（解放）。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn のスライド", url: "https://speakerdeck.com/jhawthorn/vernier-a-next-generation-cruby-profiler-rubykaigi-2024" }
+  },
+  {
+    id: "vocab-108",
+    category: "vocab-en",
+    q: "<b>methodologies</b>(名詞・複数)の意味として最も近いのは？",
+    options: [
+      "個別のメソッドの実装集",
+      "開発チームのメンバー構成",
+      "バグ報告のフォーマット",
+      "体系化された方法論（組織的な進め方）"
+    ],
+    answer: 3,
+    explanation: "<b>method</b>（方法）+ <b>-ology</b>（〜学）。abstract の「innovative methodologies」は「新しい計測の方法論」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn の abstract", url: "https://rubykaigi.org/2024/presentations/jhawthorn.html#day1" }
+  },
+  {
+    id: "vocab-109",
+    category: "vocab-en",
+    q: "<b>enhanced</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "機能や性能が拡張・強化された",
+      "一時的に使えなくなった",
+      "単純化された",
+      "暗号化された"
+    ],
+    answer: 0,
+    explanation: "<b>enhance</b>（高める）の過去分詞。「enhanced visibility」は「より見えやすくなった観測性」。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn の abstract", url: "https://rubykaigi.org/2024/presentations/jhawthorn.html#day1" }
+  },
+  {
+    id: "vocab-110",
+    category: "vocab-en",
+    q: "<b>essential</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "派手で目を引く",
+      "不可欠で欠かせない",
+      "余裕があれば入れたい",
+      "初心者向けに調整された"
+    ],
+    answer: 1,
+    explanation: "<b>essence</b>（本質）の形容詞。「A good profiler is essential」= 良いプロファイラは必須。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn の abstract", url: "https://rubykaigi.org/2024/presentations/jhawthorn.html#day1" }
+  },
+  {
+    id: "vocab-111",
+    category: "vocab-en",
+    q: "<b>innovative</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "伝統的で安定した",
+      "古典的で定評ある",
+      "革新的で新機軸の",
+      "廉価で使いやすい"
+    ],
+    answer: 2,
+    explanation: "<b>innovate</b>（革新する）の形容詞。「innovative methodologies」= 斬新な方法論。",
+    reference: { label: "RubyKaigi 2024: Vernier / jhawthorn の abstract", url: "https://rubykaigi.org/2024/presentations/jhawthorn.html#day1" }
+  },
+  {
+    id: "vocab-112",
+    category: "vocab-en",
+    q: "セキュリティ文脈の <b>mitigate</b>（動詞）の意味として最も近いのは？",
+    options: [
+      "根本原因を取り除く",
+      "完全になかったことにする",
+      "責任を押しつける",
+      "被害・リスクを和らげる・緩和する"
+    ],
+    answer: 3,
+    explanation: "<b>mitigation</b>（緩和）。脆弱性対策で「mitigate these risks」=「リスクを緩和する」は常套句。",
+    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2 / lmt_swallow の abstract", url: "https://rubykaigi.org/2023/presentations/lmt_swallow.html#day2" }
+  },
+  {
+    id: "vocab-113",
+    category: "vocab-en",
+    q: "<b>exponential</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "指数関数的な（急激に増大する）",
+      "線形に増える",
+      "定数で変わらない",
+      "反比例する"
+    ],
+    answer: 0,
+    explanation: "ReDoS の「exponential time complexity」=「入力長に対して実行時間が指数的に伸びる」危険性を表現。",
+    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2 / lmt_swallow の abstract", url: "https://rubykaigi.org/2023/presentations/lmt_swallow.html#day2" }
+  },
+  {
+    id: "vocab-114",
+    category: "vocab-en",
+    q: "<b>vulnerabilities</b>(名詞・複数)の意味として最も近いのは？",
+    options: [
+      "必須要件",
+      "攻撃されうる弱点・脆弱性",
+      "推奨されるテストケース",
+      "不要になった設定"
+    ],
+    answer: 1,
+    explanation: "<b>vulnerable</b>（傷つきやすい）の名詞形。セキュリティでは「脆弱性」の定番訳。",
+    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2 / lmt_swallow の abstract", url: "https://rubykaigi.org/2023/presentations/lmt_swallow.html#day2" }
+  },
+  {
+    id: "vocab-115",
+    category: "vocab-en",
+    q: "<b>problematic</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "簡単に解決できる",
+      "一切関係のない",
+      "問題を孕んでいる・ややこしい",
+      "文献上のみ言及される"
+    ],
+    answer: 2,
+    explanation: "「problematic patterns」= 問題を起こしやすい（破滅的バックトラックを誘発する）正規表現パターン。",
+    reference: { label: "RubyKaigi 2023: Eliminating ReDoS with Ruby 3.2 / lmt_swallow の abstract", url: "https://rubykaigi.org/2023/presentations/lmt_swallow.html#day2" }
+  },
+  {
+    id: "vocab-116",
+    category: "vocab-en",
+    q: "<b>suitable</b>（形容詞）の意味として最も近いのは？",
+    options: [
+      "定時の・時間にかなった",
+      "似合っていない",
+      "再利用可能な",
+      "ふさわしい・その用途に適した"
+    ],
+    answer: 3,
+    explanation: "「suitable for continuous profiling」=「常時プロファイリングに耐えうる」。",
+    reference: { label: "RubyKaigi 2025: SDB / yfractal の abstract", url: "https://rubykaigi.org/2025/presentations/yfractal.html" }
+  },
+  {
+    id: "vocab-117",
+    category: "vocab-en",
+    q: "<b>taxonomy</b>（名詞）の意味として最も近いのは？",
+    options: [
+      "分類体系（カテゴリに分けて整理した枠組み）",
+      "税制の一覧",
+      "専門用語の辞書",
+      "動植物の飼育方法"
+    ],
+    answer: 0,
+    explanation: "生物分類由来。talk「A taxonomy of Ruby calls」は「Ruby のメソッド呼び出しを種類ごとに分類した体系」。",
+    reference: { label: "RubyKaigi 2025: A taxonomy of Ruby calls / alanwusx", url: "https://rubykaigi.org/2025/presentations/alanwusx.html" }
+  },
+  {
+    id: "vocab-118",
+    category: "vocab-en",
+    q: "<b>dissecting</b>（動名詞）の意味として最も近いのは？",
+    options: [
+      "2 つに折りたたむこと",
+      "切り分けて細部を観察すること（解剖・詳細分析）",
+      "通り過ぎること",
+      "手短にまとめること"
+    ],
+    answer: 1,
+    explanation: "<b>dissect</b>（解剖する）の ing 形。talk「Dissecting and Reconstructing Ruby Syntactic Structures」は「Ruby の構文構造を分解してもう一度組み立てる」。",
+    reference: { label: "RubyKaigi 2025: Dissecting and Reconstructing Ruby Syntactic Structures / ydah_", url: "https://rubykaigi.org/2025/presentations/ydah_.html" }
+  },
+  {
+    id: "vocab-119",
+    category: "vocab-en",
+    q: "<b>unleashing</b>（動名詞）の意味として最も近いのは？",
+    options: [
+      "綱でつないでおくこと",
+      "段階的に止めていくこと",
+      "押さえていた力を解き放つこと",
+      "厳密な審査にかけること"
+    ],
+    answer: 2,
+    explanation: "<b>un-</b>（解く）+ <b>leash</b>（綱）。「Unleashing the Power of Asynchronous HTTP」=「非同期 HTTP の潜在能力を解き放つ」。",
+    reference: { label: "RubyKaigi 2023: Unleashing the Power of Asynchronous HTTP with Ruby / ioquatix", url: "https://rubykaigi.org/2023/presentations/ioquatix.html#day3" }
+  },
+  {
+    id: "vocab-120",
+    category: "vocab-en",
+    q: "<b>inception</b>(名詞)の意味として最も近いのは？",
+    options: [
+      "廃止の手順",
+      "完成形",
+      "検証段階",
+      "始まり・発端"
+    ],
+    answer: 3,
+    explanation: "<b>inceptive</b>（開始の）の名詞。「from inception to production」=「構想（発端）から本番投入まで」の決まり文句。",
+    reference: { label: "RubyKaigi 2023: Optimizing YJIT's Performance, from Inception to Production / maximecb", url: "https://rubykaigi.org/2023/presentations/maximecb.html#day2" }
+  },
+  {
+    id: "vocab-121",
+    category: "vocab-en",
+    q: "ベンチマーク文脈の <b>warmups</b>(名詞・複数)の意味として最も近いのは？",
+    options: [
+      "本計測の前に実施するならし実行",
+      "温度計測のための予熱機器",
+      "事前に失敗させるためのダミー試験",
+      "ユーザー向けの挨拶動画"
+    ],
+    answer: 0,
+    explanation: "JIT や CPU キャッシュを温めるために、ベンチマークの前に <b>warmup run</b> を行うのが定石。",
+    reference: { label: "RubyKaigi 2025: Speeding up Class#new / tenderlove のスライド", url: "https://speakerdeck.com/tenderlove/rubykaigi-2025-class-new-a-new-approach" }
   }
 ];
